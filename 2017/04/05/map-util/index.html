@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>将形如key=value&amp;key=value的字符串转换为相应的Map对象 | 我爱你珍珠</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将形如key=value&amp;key=value的字符串转换为相应的Map对象">
+<meta property="og:url" content="https://shockay.github.io/2017/04/05/map-util/index.html">
+<meta property="og:site_name" content="我爱你珍珠">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-28T15:16:40.172Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="将形如key=value&amp;key=value的字符串转换为相应的Map对象">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021">
+  
+    <link rel="alternate" href="/atom.xml" title="我爱你珍珠" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我爱你珍珠</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">the site of shockay</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shockay.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-map-util" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/05/map-util/" class="article-date">
+  <time datetime="2017-04-05T10:31:29.000Z" itemprop="datePublished">2017-04-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      将形如key=value&amp;key=value的字符串转换为相应的Map对象
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 兼容老方法 将形如key=value&amp;key=value的字符串转换为相应的Map对象</span><br><span class="line"> * </span><br><span class="line"> * @param result</span><br><span class="line"> * @<span class="built_in">return</span></span><br><span class="line"> */</span><br><span class="line">public static Map&lt;String, String&gt; coverResultString2Map(String result) &#123;</span><br><span class="line">	<span class="built_in">return</span> convertResultStringToMap(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 将形如key=value&amp;key=value的字符串转换为相应的Map对象</span><br><span class="line"> * </span><br><span class="line"> * @param result</span><br><span class="line"> * @<span class="built_in">return</span></span><br><span class="line"> */</span><br><span class="line">public static Map&lt;String, String&gt; convertResultStringToMap(String result) &#123;</span><br><span class="line">	Map&lt;String, String&gt; map =null;</span><br><span class="line">	try &#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(StringUtils.isNotBlank(result))&#123;</span><br><span class="line">			<span class="keyword">if</span>(result.startsWith(<span class="string">"&#123;"</span>) &amp;&amp; result.endsWith(<span class="string">"&#125;"</span>))&#123;</span><br><span class="line">				System.out.println(result.length());</span><br><span class="line">				result = result.substring(1, result.length()-1);</span><br><span class="line">			&#125;</span><br><span class="line">			 map = parseQString(result);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125; catch (UnsupportedEncodingException e) &#123;</span><br><span class="line">		LogUtil.writeErrorLog(e.getMessage(), e);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> map;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 解析应答字符串，生成应答要素</span><br><span class="line"> * </span><br><span class="line"> * @param str</span><br><span class="line"> *            需要解析的字符串</span><br><span class="line"> * @<span class="built_in">return</span> 解析的结果map</span><br><span class="line"> * @throws UnsupportedEncodingException</span><br><span class="line"> */</span><br><span class="line">public static Map&lt;String, String&gt; parseQString(String str)</span><br><span class="line">		throws UnsupportedEncodingException &#123;</span><br><span class="line"></span><br><span class="line">	Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</span><br><span class="line">	int len = str.length();</span><br><span class="line">	StringBuilder temp = new StringBuilder();</span><br><span class="line">	char curChar;</span><br><span class="line">	String key = null;</span><br><span class="line">	boolean isKey = <span class="literal">true</span>;</span><br><span class="line">	boolean isOpen = <span class="literal">false</span>;//值里有嵌套</span><br><span class="line">	char openName = 0;</span><br><span class="line">	<span class="keyword">if</span>(len&gt;0)&#123;</span><br><span class="line">		<span class="keyword">for</span> (int i = 0; i &lt; len; i++) &#123;// 遍历整个带解析的字符串</span><br><span class="line">			curChar = str.charAt(i);// 取当前字符</span><br><span class="line">			<span class="keyword">if</span> (isKey) &#123;// 如果当前生成的是key</span><br><span class="line">				</span><br><span class="line">				<span class="keyword">if</span> (curChar == <span class="string">'='</span>) &#123;// 如果读取到=分隔符 </span><br><span class="line">					key = temp.toString();</span><br><span class="line">					temp.setLength(0);</span><br><span class="line">					isKey = <span class="literal">false</span>;</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					temp.append(curChar);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">else</span>  &#123;// 如果当前生成的是value</span><br><span class="line">				<span class="keyword">if</span>(isOpen)&#123;</span><br><span class="line">					<span class="keyword">if</span>(curChar == openName)&#123;</span><br><span class="line">						isOpen = <span class="literal">false</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;//如果没开启嵌套</span><br><span class="line">					<span class="keyword">if</span>(curChar == <span class="string">'&#123;'</span>)&#123;//如果碰到，就开启嵌套</span><br><span class="line">						isOpen = <span class="literal">true</span>;</span><br><span class="line">						openName =<span class="string">'&#125;'</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span>(curChar == <span class="string">'['</span>)&#123;</span><br><span class="line">						isOpen = <span class="literal">true</span>;</span><br><span class="line">						openName =<span class="string">']'</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (curChar == <span class="string">'&amp;'</span> &amp;&amp; !isOpen) &#123;// 如果读取到&amp;分割符,同时这个分割符不是值域，这时将map里添加</span><br><span class="line">					putKeyValueToMap(temp, isKey, key, map);</span><br><span class="line">					temp.setLength(0);</span><br><span class="line">					isKey = <span class="literal">true</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					temp.append(curChar);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		putKeyValueToMap(temp, isKey, key, map);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> map;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">private static void putKeyValueToMap(StringBuilder temp, boolean isKey,</span><br><span class="line">		String key, Map&lt;String, String&gt; map)</span><br><span class="line">		throws UnsupportedEncodingException &#123;</span><br><span class="line">	<span class="keyword">if</span> (isKey) &#123;</span><br><span class="line">		key = temp.toString();</span><br><span class="line">		<span class="keyword">if</span> (key.length() == 0) &#123;</span><br><span class="line">			throw new RuntimeException(<span class="string">"QString format illegal"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		map.put(key, <span class="string">""</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (key.length() == 0) &#123;</span><br><span class="line">			throw new RuntimeException(<span class="string">"QString format illegal"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		map.put(key, temp.toString());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shockay.github.io/2017/04/05/map-util/" data-id="cjbqomro80003p8f9zkhv0j6o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/18/单例模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          单例模式实现方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/21/hexo搭建github博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">搭建github博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-blog/">github blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/github-blog/" style="font-size: 10px;">github blog</a> <a href="/tags/java/" style="font-size: 20px;">java</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/18/单例模式/">单例模式实现方式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/05/map-util/">将形如key=value&amp;key=value的字符串转换为相应的Map对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/21/hexo搭建github博客/">搭建github博客</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/21/pearl/">java积累</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 shockay<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
