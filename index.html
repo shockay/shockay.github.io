@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我爱你，珍珠</title>
+  <title>董政杰，你在干嘛呢</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="my first hexo blog">
 <meta property="og:type" content="website">
-<meta property="og:title" content="我爱你，珍珠">
+<meta property="og:title" content="董政杰，你在干嘛呢">
 <meta property="og:url" content="https://shockay.github.io/index.html">
-<meta property="og:site_name" content="我爱你，珍珠">
+<meta property="og:site_name" content="董政杰，你在干嘛呢">
 <meta property="og:description" content="my first hexo blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我爱你，珍珠">
+<meta name="twitter:title" content="董政杰，你在干嘛呢">
 <meta name="twitter:description" content="my first hexo blog">
   
-    <link rel="alternate" href="/atom.xml" title="我爱你，珍珠" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="董政杰，你在干嘛呢" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -37,7 +37,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">我爱你，珍珠</a>
+        <a href="/" id="logo">董政杰，你在干嘛呢</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shockay.github.io/2017/04/18/单例模式/" data-id="cjbqqpkiq0005u0f9gj1v5g0i" class="article-share-link">Share</a>
+      <a data-url="https://shockay.github.io/2017/04/18/单例模式/" data-id="cjbw7szeo000348f9h907ua3p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
@@ -135,54 +135,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shockay.github.io/2017/04/05/map-util/" data-id="cjbqqpkiq0002u0f9ppc8jl24" class="article-share-link">Share</a>
+      <a data-url="https://shockay.github.io/2017/04/05/map-util/" data-id="cjbw7szeo000248f9zih21c8y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hexo搭建github博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/21/hexo搭建github博客/" class="article-date">
-  <time datetime="2017-03-21T02:06:31.000Z" itemprop="datePublished">2017-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/21/hexo搭建github博客/">搭建github博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h5 id="一、使用hexo-deploy自动部署到github-page的时候出现了错误"><a href="#一、使用hexo-deploy自动部署到github-page的时候出现了错误" class="headerlink" title="一、使用hexo deploy自动部署到github page的时候出现了错误"></a>一、使用hexo deploy自动部署到github page的时候出现了错误</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FATAL bash: /dev/tty: No such device or address</span><br><span class="line">error: failed to execute prompt script (<span class="built_in">exit</span> code 1)</span><br><span class="line">fatal: could not <span class="built_in">read</span> Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: Invalid argument</span><br><span class="line">Error: bash: /dev/tty: No such device or address</span><br><span class="line">error: failed to execute prompt script (<span class="built_in">exit</span> code 1)</span><br><span class="line">fatal: could not <span class="built_in">read</span> Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: Invalid argument</span><br></pre></td></tr></table></figure>
-<p>把_config.yml中的Git仓库链接改成了ssh链接，然后就可以部署了</p>
-<h5 id="二、关于HEXO安装失败的解决方法"><a href="#二、关于HEXO安装失败的解决方法" class="headerlink" title="二、关于HEXO安装失败的解决方法"></a>二、关于HEXO安装失败的解决方法</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">解决方法：</span><br><span class="line">目前国内npm源有问题；所以键入如下代码即可安装成功:</span><br><span class="line"></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">cnpm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h5 id="三、将Hexo代码clone到本地启动报错ERROR-Local-hexo-not-found"><a href="#三、将Hexo代码clone到本地启动报错ERROR-Local-hexo-not-found" class="headerlink" title="三、将Hexo代码clone到本地启动报错ERROR Local hexo not found"></a>三、将Hexo代码clone到本地启动报错ERROR Local hexo not found</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.背景：</span><br><span class="line">Hexo搭建博客之后用git已经将所有的<span class="built_in">source</span>都同步到了git上，在另一台电脑上将源代码<span class="built_in">clone</span>下来之后，</span><br><span class="line">直接执行 hexo server,出现错误</span><br><span class="line"></span><br><span class="line">ERROR Local hexo not found <span class="keyword">in</span> E:\blog</span><br><span class="line">ERROR Try running: <span class="string">'npm install hexo --save'</span></span><br><span class="line">2.解决方案：</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> E:\blog</span><br><span class="line">npm install hexo server</span><br><span class="line">3.原因 ：</span><br><span class="line"></span><br><span class="line">.gitignore文件里面忽略了node_modules文件夹，所以这个文件夹没有更新上去。所以用npm重新安装即可。</span><br></pre></td></tr></table></figure>
-<h6 id="福利来了："><a href="#福利来了：" class="headerlink" title="福利来了："></a>福利来了：</h6><p><img src="http://on5m96df7.bkt.clouddn.com/test01.jpg" alt="美丽花儿" title="美丽花儿"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shockay.github.io/2017/03/21/hexo搭建github博客/" data-id="cjbqqpkiq0000u0f9f107212j" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-blog/">github blog</a></li></ul>
 
     </footer>
   </div>
@@ -228,9 +184,53 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shockay.github.io/2017/03/21/pearl/" data-id="cjbqqpkiq0004u0f9e09hbpn4" class="article-share-link">Share</a>
+      <a data-url="https://shockay.github.io/2017/03/21/pearl/" data-id="cjbw7sze8000048f9y6s354yc" class="article-share-link">Share</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo搭建github博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/21/hexo搭建github博客/" class="article-date">
+  <time datetime="2017-03-21T02:06:31.000Z" itemprop="datePublished">2017-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/21/hexo搭建github博客/">搭建github博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h5 id="一、使用hexo-deploy自动部署到github-page的时候出现了错误"><a href="#一、使用hexo-deploy自动部署到github-page的时候出现了错误" class="headerlink" title="一、使用hexo deploy自动部署到github page的时候出现了错误"></a>一、使用hexo deploy自动部署到github page的时候出现了错误</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FATAL bash: /dev/tty: No such device or address</span><br><span class="line">error: failed to execute prompt script (<span class="built_in">exit</span> code 1)</span><br><span class="line">fatal: could not <span class="built_in">read</span> Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: Invalid argument</span><br><span class="line">Error: bash: /dev/tty: No such device or address</span><br><span class="line">error: failed to execute prompt script (<span class="built_in">exit</span> code 1)</span><br><span class="line">fatal: could not <span class="built_in">read</span> Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: Invalid argument</span><br></pre></td></tr></table></figure>
+<p>把_config.yml中的Git仓库链接改成了ssh链接，然后就可以部署了</p>
+<h5 id="二、关于HEXO安装失败的解决方法"><a href="#二、关于HEXO安装失败的解决方法" class="headerlink" title="二、关于HEXO安装失败的解决方法"></a>二、关于HEXO安装失败的解决方法</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">解决方法：</span><br><span class="line">目前国内npm源有问题；所以键入如下代码即可安装成功:</span><br><span class="line"></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">cnpm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h5 id="三、将Hexo代码clone到本地启动报错ERROR-Local-hexo-not-found"><a href="#三、将Hexo代码clone到本地启动报错ERROR-Local-hexo-not-found" class="headerlink" title="三、将Hexo代码clone到本地启动报错ERROR Local hexo not found"></a>三、将Hexo代码clone到本地启动报错ERROR Local hexo not found</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.背景：</span><br><span class="line">Hexo搭建博客之后用git已经将所有的<span class="built_in">source</span>都同步到了git上，在另一台电脑上将源代码<span class="built_in">clone</span>下来之后，</span><br><span class="line">直接执行 hexo server,出现错误</span><br><span class="line"></span><br><span class="line">ERROR Local hexo not found <span class="keyword">in</span> E:\blog</span><br><span class="line">ERROR Try running: <span class="string">'npm install hexo --save'</span></span><br><span class="line">2.解决方案：</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> E:\blog</span><br><span class="line">npm install hexo server</span><br><span class="line">3.原因 ：</span><br><span class="line"></span><br><span class="line">.gitignore文件里面忽略了node_modules文件夹，所以这个文件夹没有更新上去。所以用npm重新安装即可。</span><br></pre></td></tr></table></figure>
+<h6 id="福利来了："><a href="#福利来了：" class="headerlink" title="福利来了："></a>福利来了：</h6><p><img src="http://on5m96df7.bkt.clouddn.com/test01.jpg" alt="美丽花儿" title="美丽花儿"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shockay.github.io/2017/03/21/hexo搭建github博客/" data-id="cjbw7szeo000548f9sj19jem6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-blog/">github blog</a></li></ul>
+
     </footer>
   </div>
   
@@ -290,11 +290,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/21/hexo搭建github博客/">搭建github博客</a>
+            <a href="/2017/03/21/pearl/">java积累</a>
           </li>
         
           <li>
-            <a href="/2017/03/21/pearl/">java积累</a>
+            <a href="/2017/03/21/hexo搭建github博客/">搭建github博客</a>
           </li>
         
       </ul>
@@ -309,7 +309,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 shockay<br>
+      &copy; 2018 shockay<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
